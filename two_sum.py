@@ -48,18 +48,20 @@ If this list of nums is sufficiently long this solution is awful
 
 # A much better solution
 def two_sum(nums, target):
-    # dictionary of {nums[i]: i} where x is the index in the list
-    d = {}
-    for i, n in enumerate(nums):
-        m = target - n
-        # if we already placed "m" in the dictionary then nums[d[m]] +
-        # nums[i] is our solution
-        if m in d:
-            return [d[m], i]
-        # we didn't find "m" in the dictionary so let's add this key,value
-        # pair of {nums[i]: i}
+    # dictionary of {nums[index]: index} to store a history of possible partners
+    # that add up to the target
+    partner_value_dict = {}
+    for index, num in enumerate(nums):
+        # pair is the "partner" value that added to num equals our target
+        pair = target - num
+        # if we already placed "pair" in the dictionary then partner_value_dict[pair] 
+        # and index are the indices of our solution
+        if pair in partner_value_dict:
+            return [partner_value_dict[pair], index]
+        # we didn't find "pair" in the dictionary so let's add this key, value
+        # pair of {nums[index]: index}
         else:
-            d[n] = i
+            partner_value_dict[num] = index
 
 nums = [2,7,11,15]
 target = 9
