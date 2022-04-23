@@ -4,7 +4,7 @@ Problem:
 Given the head of a singly linked list, return true if it is a palindrome.
 """
 
-def is_palindrome(self, head):
+def is_palindrome(head):
     # problem, we have no idea how long this thing is
     # if we know the half way point we could store a mapping
     # of value and its location in the linked list and check that
@@ -26,7 +26,7 @@ def is_palindrome(self, head):
     return values == values[::-1]
 
 
-def isPalindrome(self, head):
+def isPalindrome(head):
     # rev records the first half, need to set the same structure as fast, slow, hence later we have rev.next
     rev = None
     # initially slow and fast are the same, starting from head
